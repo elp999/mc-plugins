@@ -1,0 +1,9 @@
+name: SpawnEggRecipe
+version: 1.0
+main: evan.spawneggrecipe.SpawnEggRecipe
+api-version: 1.21
+
+commands:
+  recipe:
+    description: Shows custom spawn egg recipes
+    usage: /eggrecipe <mob>
