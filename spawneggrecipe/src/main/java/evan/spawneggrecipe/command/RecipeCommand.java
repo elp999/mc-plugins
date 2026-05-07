@@ -42,6 +42,30 @@ public class RecipeCommand implements CommandExecutor {
                 sender.sendMessage("TGT");
                 break;
 
+            case "pig":
+                sender.sendMessage(ChatColor.GREEN + "Pig Spawn Egg Recipe:");
+                sender.sendMessage("C = Carrot");
+                sender.sendMessage("G = Gold Ingot");
+                sender.sendMessage("P = Porkchop");
+                sender.sendMessage("E = Egg");
+                sender.sendMessage("");
+                sender.sendMessage("CGC");
+                sender.sendMessage("PEP");
+                sender.sendMessage("CGC");
+                break;
+
+            case "warden":
+                sender.sendMessage(ChatColor.GREEN + "Warden Spawn Egg Recipe:");
+                sender.sendMessage("S = Sculk Shrieker");
+                sender.sendMessage("K = Sculk Sensor");
+                sender.sendMessage("P = Potion of Blindness");
+                sender.sendMessage("E = Egg");
+                sender.sendMessage("");
+                sender.sendMessage("SKS");
+                sender.sendMessage("SES");
+                sender.sendMessage("SPS");
+                break;
+
             default:
                 sender.sendMessage(ChatColor.RED + "Unknown recipe: " + type);
                 break;

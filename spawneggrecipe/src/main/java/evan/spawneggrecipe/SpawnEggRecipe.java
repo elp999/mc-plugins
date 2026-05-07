@@ -11,6 +11,7 @@ public class SpawnEggRecipe extends JavaPlugin {
         // Register your recipes and event listeners here
         new RecipeManager(this).registerRecipes();
         getCommand("eggrecipe").setExecutor(new RecipeCommand());
+        getLogger().info("Recipes registered and command executor set!");
     }
     
 }
