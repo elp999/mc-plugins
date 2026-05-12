@@ -11,7 +11,7 @@ public class RecipeCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|enderman>");
+            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|enderman|pig|warden|cow|blaze>");
             return true;
         }
 
@@ -64,6 +64,30 @@ public class RecipeCommand implements CommandExecutor {
                 sender.sendMessage("SKS");
                 sender.sendMessage("SES");
                 sender.sendMessage("SPS");
+                break;
+
+            case "cow":
+                sender.sendMessage(ChatColor.GREEN + "Cow Spawn Egg Recipe:");
+                sender.sendMessage("L = Leather");
+                sender.sendMessage("M = Milk Bucket");
+                sender.sendMessage("C = Egg");
+                sender.sendMessage("S = Cooked Beef");
+                sender.sendMessage("");
+                sender.sendMessage("SML");
+                sender.sendMessage("MCM");
+                sender.sendMessage("LMS");
+                break;
+
+            case "blaze":
+                sender.sendMessage(ChatColor.GREEN + "Blaze Spawn Egg Recipe:");
+                sender.sendMessage("F = Fire Charge");
+                sender.sendMessage("R = Blaze Rod");
+                sender.sendMessage("S = Flint and Steel");
+                sender.sendMessage("E = Egg");
+                sender.sendMessage("");
+                sender.sendMessage("FRF");
+                sender.sendMessage("FEF");
+                sender.sendMessage("FSF");
                 break;
 
             default:

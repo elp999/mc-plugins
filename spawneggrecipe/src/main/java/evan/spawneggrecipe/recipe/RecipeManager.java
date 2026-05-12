@@ -15,5 +15,7 @@ public class RecipeManager {
         new EndermanEggRecipe(plugin).register();
         new PigEggRecipe(plugin).register();
         new WardenEggRecipe(plugin).register();
+        new CowEggRecipe(plugin).register();
+        new BlazeEggRecipe(plugin).register();
     }
 }
