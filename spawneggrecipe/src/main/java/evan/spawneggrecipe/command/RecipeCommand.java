@@ -11,6 +11,17 @@ import org.bukkit.inventory.ItemStack;
 
 public class RecipeCommand implements CommandExecutor {
 
+    //public void createRecipe(String name, ItemStack[] ingredients, ItemStack result) {
+    //    Inventory gui = Bukkit.createInventory(null, InventoryType.WORKBENCH, "§8Custom Recipe Creator");
+    //    ((org.bukkit.entity.Player) sender).openInventory(gui);
+    //
+    //    for (int i = 0; i < ingredients.length; i++) {
+    //        gui.setItem(i, ingredients[i]);
+    //    }
+    //
+    //    gui.setItem(9, result); // crafting result
+    //}
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -42,7 +53,7 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "creeper":
-                
+
                 gui.setItem(0, new ItemStack(org.bukkit.Material.TNT)); //block 1
                 gui.setItem(1, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 2
                 gui.setItem(2, new ItemStack(org.bukkit.Material.TNT)); //block 3
