@@ -9,18 +9,11 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class RecipeCommand implements CommandExecutor {
+//import evan.spawneggrecipe.recipe.BlazeEggRecipe;
+//import evan.spawneggrecipe.recipe.CreeperEggRecipe;
+//import evan.spawneggrecipe.recipe.EndermanEggRecipe;
 
-    //public void createRecipe(String name, ItemStack[] ingredients, ItemStack result) {
-    //    Inventory gui = Bukkit.createInventory(null, InventoryType.WORKBENCH, "§8Custom Recipe Creator");
-    //    ((org.bukkit.entity.Player) sender).openInventory(gui);
-    //
-    //    for (int i = 0; i < ingredients.length; i++) {
-    //        gui.setItem(i, ingredients[i]);
-    //    }
-    //
-    //    gui.setItem(9, result); // crafting result
-    //}
+public class RecipeCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

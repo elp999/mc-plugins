@@ -15,30 +15,47 @@ public class CreeperEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-
-        // Result item (Creeper Spawn Egg)
+    public ShapedRecipe getRecipe() {
         ItemStack result = new ItemStack(Material.CREEPER_SPAWN_EGG);
-
-        // Unique recipe key
         NamespacedKey key = new NamespacedKey(plugin, "creeper_spawn_egg");
-
-        // Create shaped recipe
         ShapedRecipe recipe = new ShapedRecipe(key, result);
 
-        // Shape (3x3 crafting table)
         recipe.shape(
                 "TGT",
                 "TET",
                 "TGT"
         );
 
-        // Ingredients
         recipe.setIngredient('G', Material.GUNPOWDER);
         recipe.setIngredient('E', Material.EGG);
         recipe.setIngredient('T', Material.TNT);
+        return recipe;
+    }
+
+    public void register() {
+
+        // Result item (Creeper Spawn Egg)
+        //ItemStack result = new ItemStack(Material.CREEPER_SPAWN_EGG);
+//
+        //// Unique recipe key
+        //NamespacedKey key = new NamespacedKey(plugin, "creeper_spawn_egg");
+//
+        //// Create shaped recipe
+        //ShapedRecipe recipe = new ShapedRecipe(key, result);
+//
+        //// Shape (3x3 crafting table)
+        //recipe.shape(
+        //        "TGT",
+        //        "TET",
+        //        "TGT"
+        //);
+//
+        //// Ingredients
+        //recipe.setIngredient('G', Material.GUNPOWDER);
+        //recipe.setIngredient('E', Material.EGG);
+        //recipe.setIngredient('T', Material.TNT);
 
         // Register recipe
-        Bukkit.addRecipe(recipe);
+        Bukkit.addRecipe(getRecipe());
     }
 }
