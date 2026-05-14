@@ -11,6 +11,7 @@ public class RecipeManager {
     }
 
     public void registerRecipes() {
+
         new CreeperEggRecipe(plugin).register();
         new EndermanEggRecipe(plugin).register();
         new PigEggRecipe(plugin).register();
