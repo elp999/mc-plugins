@@ -15,9 +15,7 @@ public class EndermanEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-        // Implementation for Enderman Spawn Egg recipe
-
+    public ShapedRecipe getRecipe() {
         ItemStack result = new ItemStack(Material.ENDERMAN_SPAWN_EGG);
         NamespacedKey key = new NamespacedKey(plugin, "enderman_spawn_egg");
         ShapedRecipe recipe = new ShapedRecipe(key, result);
@@ -32,7 +30,11 @@ public class EndermanEggRecipe {
         recipe.setIngredient('E', Material.ENDER_PEARL);
         recipe.setIngredient('S', Material.EGG);
         recipe.setIngredient('O', Material.ENDER_EYE);
-        Bukkit.addRecipe(recipe);
+        return recipe;
+    }
+
+    public void register() {
+        Bukkit.addRecipe(getRecipe());
     }
     
 }

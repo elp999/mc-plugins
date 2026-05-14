@@ -32,32 +32,32 @@ public class RecipeCommand implements CommandExecutor {
 
             case "enderman":
 
-                gui.setItem(0, new ItemStack(org.bukkit.Material.END_ROD)); //block 1
-                gui.setItem(1, new ItemStack(org.bukkit.Material.ENDER_PEARL)); //block 2
-                gui.setItem(2, new ItemStack(org.bukkit.Material.EGG)); //block 3
-                gui.setItem(3, new ItemStack(org.bukkit.Material.ENDER_EYE)); //block 4
-                gui.setItem(4, new ItemStack(org.bukkit.Material.END_ROD)); //block 5
-                gui.setItem(5, new ItemStack(org.bukkit.Material.ENDER_PEARL)); //block 6
-                gui.setItem(6, new ItemStack(org.bukkit.Material.EGG)); //block 7
-                gui.setItem(7, new ItemStack(org.bukkit.Material.ENDER_EYE)); //block 8
-                gui.setItem(8, new ItemStack(org.bukkit.Material.END_ROD)); //block 9
+                gui.setItem(1, new ItemStack(org.bukkit.Material.END_ROD)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.ENDER_EYE)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.END_ROD)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.ENDER_PEARL)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.ENDER_PEARL)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.END_ROD)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.ENDER_EYE)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.END_ROD)); //block 9
 
-                gui.setItem(9, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); // crafting result
+                gui.setItem(0, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); // crafting result
                 break;
 
             case "creeper":
 
-                gui.setItem(0, new ItemStack(org.bukkit.Material.TNT)); //block 1
-                gui.setItem(1, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 2
-                gui.setItem(2, new ItemStack(org.bukkit.Material.TNT)); //block 3
-                gui.setItem(3, new ItemStack(org.bukkit.Material.TNT)); //block 4
-                gui.setItem(4, new ItemStack(org.bukkit.Material.EGG)); //block 5
-                gui.setItem(5, new ItemStack(org.bukkit.Material.TNT)); //block
-                gui.setItem(6, new ItemStack(org.bukkit.Material.TNT)); //block 7
-                gui.setItem(7, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 8
-                gui.setItem(8, new ItemStack(org.bukkit.Material.TNT)); //block 9
+                gui.setItem(1, new ItemStack(org.bukkit.Material.TNT)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.TNT)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.TNT)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.TNT)); //block
+                gui.setItem(7, new ItemStack(org.bukkit.Material.TNT)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.TNT)); //block 9
 
-                gui.setItem(9, new ItemStack(org.bukkit.Material.CREEPER_SPAWN_EGG)); // crafting result
+                gui.setItem(0, new ItemStack(org.bukkit.Material.CREEPER_SPAWN_EGG)); // crafting result
 
                 break;
 
