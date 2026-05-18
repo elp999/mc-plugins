@@ -15,9 +15,7 @@ public class BlazeEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-        // Implementation for Blaze Spawn Egg recipe
-
+    public ShapedRecipe getRecipe() {
         ItemStack result = new ItemStack(Material.BLAZE_SPAWN_EGG);
         NamespacedKey key = new NamespacedKey(plugin, "blaze_spawn_egg");
         ShapedRecipe recipe = new ShapedRecipe(key, result);
@@ -32,6 +30,10 @@ public class BlazeEggRecipe {
         recipe.setIngredient('R', Material.BLAZE_ROD);
         recipe.setIngredient('S', Material.FLINT_AND_STEEL);
         recipe.setIngredient('E', Material.EGG);
-        Bukkit.addRecipe(recipe);
+        return recipe;
+    }
+
+    public void register() {
+        Bukkit.addRecipe(getRecipe());
     }
 }

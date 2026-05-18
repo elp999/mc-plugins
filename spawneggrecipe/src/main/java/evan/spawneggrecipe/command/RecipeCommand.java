@@ -5,15 +5,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import evan.spawneggrecipe.recipe.WardenEggRecipe;
 
 //import evan.spawneggrecipe.recipe.BlazeEggRecipe;
 //import evan.spawneggrecipe.recipe.CreeperEggRecipe;
 //import evan.spawneggrecipe.recipe.EndermanEggRecipe;
 
 public class RecipeCommand implements CommandExecutor {
+    private final JavaPlugin plugin;
+
+    public RecipeCommand(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -62,51 +69,63 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "pig":
-                sender.sendMessage(ChatColor.GREEN + "Pig Spawn Egg Recipe:");
-                sender.sendMessage("C = Carrot");
-                sender.sendMessage("G = Gold Ingot");
-                sender.sendMessage("P = Porkchop");
-                sender.sendMessage("E = Egg");
-                sender.sendMessage("");
-                sender.sendMessage("CGC");
-                sender.sendMessage("PEP");
-                sender.sendMessage("CGC");
+                gui.setItem(1, new ItemStack(org.bukkit.Material.CARROT)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.GOLD_INGOT)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.CARROT)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.PORKCHOP)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.PORKCHOP)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.CARROT)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.GOLD_INGOT)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.CARROT)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.PIG_SPAWN_EGG)); // crafting result
+
                 break;
 
             case "warden":
-                sender.sendMessage(ChatColor.GREEN + "Warden Spawn Egg Recipe:");
-                sender.sendMessage("S = Sculk Shrieker");
-                sender.sendMessage("K = Sculk Sensor");
-                sender.sendMessage("P = Potion of Blindness");
-                sender.sendMessage("E = Egg");
-                sender.sendMessage("");
-                sender.sendMessage("SKS");
-                sender.sendMessage("SES");
-                sender.sendMessage("SPS");
+                WardenEggRecipe wardenRecipe = new WardenEggRecipe(plugin);
+
+                gui.setItem(1, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.SCULK_SENSOR)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 7
+                gui.setItem(8, new ItemStack(wardenRecipe.getPotion())); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.WARDEN_SPAWN_EGG)); // crafting result
+
                 break;
 
             case "cow":
-                sender.sendMessage(ChatColor.GREEN + "Cow Spawn Egg Recipe:");
-                sender.sendMessage("L = Leather");
-                sender.sendMessage("M = Milk Bucket");
-                sender.sendMessage("C = Egg");
-                sender.sendMessage("S = Cooked Beef");
-                sender.sendMessage("");
-                sender.sendMessage("SML");
-                sender.sendMessage("MCM");
-                sender.sendMessage("LMS");
-                break;
+                gui.setItem(1, new ItemStack(org.bukkit.Material.COOKED_BEEF)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.MILK_BUCKET)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.LEATHER)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.MILK_BUCKET)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.MILK_BUCKET)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.LEATHER)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.MILK_BUCKET)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.COOKED_BEEF)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.COW_SPAWN_EGG)); // crafting result
 
             case "blaze":
-                sender.sendMessage(ChatColor.GREEN + "Blaze Spawn Egg Recipe:");
-                sender.sendMessage("F = Fire Charge");
-                sender.sendMessage("R = Blaze Rod");
-                sender.sendMessage("S = Flint and Steel");
-                sender.sendMessage("E = Egg");
-                sender.sendMessage("");
-                sender.sendMessage("FRF");
-                sender.sendMessage("FEF");
-                sender.sendMessage("FSF");
+                gui.setItem(1, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.BLAZE_ROD)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.FLINT_AND_STEEL)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.BLAZE_SPAWN_EGG)); // crafting result
+
                 break;
 
             default:

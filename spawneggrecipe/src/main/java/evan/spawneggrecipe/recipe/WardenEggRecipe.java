@@ -22,21 +22,7 @@ public class WardenEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-        // Implementation for Warden Spawn Egg recipe
-
-        ItemStack result = new ItemStack(Material.WARDEN_SPAWN_EGG);
-        NamespacedKey key = new NamespacedKey(plugin, "warden_spawn_egg");
-        ShapedRecipe recipe = new ShapedRecipe(key, result);
-
-        recipe.shape(
-                "SKS",
-                "SES",
-                "SPS"
-        );
-        
-        // POTION OF BLINDNESS
-
+    public ItemStack getPotion() {
         ItemStack potion = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
         meta.setBasePotionType(PotionType.AWKWARD);
@@ -46,12 +32,29 @@ public class WardenEggRecipe {
         meta.setColor(Color.fromRGB(31, 31, 31)); // Dark grey/black color
 
         potion.setItemMeta(meta);
+        return potion;
+    }
+
+    public ShapedRecipe getRecipe() {
+        ItemStack result = new ItemStack(Material.WARDEN_SPAWN_EGG);
+        NamespacedKey key = new NamespacedKey(plugin, "warden_spawn_egg");
+        ShapedRecipe recipe = new ShapedRecipe(key, result);
+
+        recipe.shape(
+                "SKS",
+                "SES",
+                "SPS"
+        );
 
         recipe.setIngredient('S', Material.SCULK_SHRIEKER);
         recipe.setIngredient('K', Material.SCULK_SENSOR);
-        recipe.setIngredient('P', new RecipeChoice.ExactChoice(potion));
+        recipe.setIngredient('P', new RecipeChoice.ExactChoice(getPotion()));
         recipe.setIngredient('E', Material.EGG);
-        Bukkit.addRecipe(recipe);
+        
+        return recipe;
     }
-    
+
+    public void register() {
+        Bukkit.addRecipe(getRecipe());
+    }
 }
