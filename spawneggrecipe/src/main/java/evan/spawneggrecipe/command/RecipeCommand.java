@@ -93,7 +93,7 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
                 gui.setItem(6, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 6
                 gui.setItem(7, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 7
-                gui.setItem(8, new ItemStack(wardenRecipe.getPotion())); //block 8
+                gui.setItem(8, wardenRecipe.getPotion()); //block 8
                 gui.setItem(9, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.WARDEN_SPAWN_EGG)); // crafting result
