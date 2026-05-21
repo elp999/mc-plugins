@@ -19,7 +19,7 @@ public class RecipeCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|enderman|pig|warden|cow|blaze>");
+            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|ghast|sheep|witherSkeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>");
             return true;
         }
 
@@ -107,6 +107,104 @@ public class RecipeCommand implements CommandExecutor {
                 sender.sendMessage("FRF");
                 sender.sendMessage("FEF");
                 sender.sendMessage("FSF");
+                break;
+            
+            case "villager":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.EMERALD)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.GOLDEN_HOE)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.EMERALD)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.EMERALD)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.EMERALD)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.EMERALD)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.GOLDEN_AXE)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.EMERALD)); //block 9
+                
+                gui.setItem(0, new ItemStack(org.bukkit.Material.VILLAGER_SPAWN_EGG)); // crafting result
+                break;
+
+            case "enderdragon":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.DRAGON_HEAD)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.DRAGON_HEAD)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.DRAGON_HEAD)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.ENDERMAN_SPAWN_EGG)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.DRAGON_HEAD)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.ENDER_DRAGON_SPAWN_EGG)); // crafting result
+                break;
+
+            case "pillager":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.EMERALD)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.CROSSBOW)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.EMERALD)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.STONE_SPEAR)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.STONE_SPEAR)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.EMERALD)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.CROSSBOW)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.EMERALD)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.PILLAGER_SPAWN_EGG)); // crafting result
+                break;
+
+            case "sheep":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.WHITE_WOOL)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.SHEEP_SPAWN_EGG)); // crafting result
+                break;
+
+            case "chicken":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.FEATHER)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.COOKED_CHICKEN)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.FEATHER)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.EGG)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.EGG)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.FEATHER)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.EGG)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.FEATHER)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.CHICKEN_SPAWN_EGG)); // crafting result
+                break;
+
+            case "witherSkeleton":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.COAL)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.STONE_SWORD)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.COAL)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.COAL)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.COAL)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.COAL)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.BONE)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.COAL)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.WITHER_SKELETON_SPAWN_EGG)); // crafting result
+                break;
+
+            case "ghast":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.GHAST_TEAR)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.GHAST_TEAR)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.GHAST_TEAR)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.GHAST_TEAR)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.GHAST_TEAR)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.GHAST_SPAWN_EGG)); // crafting result
                 break;
 
             default:

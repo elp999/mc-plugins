@@ -18,5 +18,12 @@ public class RecipeManager {
         new WardenEggRecipe(plugin).register();
         new CowEggRecipe(plugin).register();
         new BlazeEggRecipe(plugin).register();
+        new VillagerEggRecipe(plugin).register();
+        new EnderdragonEggRecipe(plugin).register();
+        new PillagerEggRecipe(plugin).register();
+        new SheepEggRecipe(plugin).register();
+        new ChickenEggRecipe(plugin).register();
+        new WitherSkeletonEggRecipe(plugin).register();
+        new GhastEggRecipe(plugin).register();
     }
 }
