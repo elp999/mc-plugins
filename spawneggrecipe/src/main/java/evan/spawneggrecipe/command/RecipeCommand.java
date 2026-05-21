@@ -1,25 +1,37 @@
 package evan.spawneggrecipe.command;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.StringUtil;
 
-//import evan.spawneggrecipe.recipe.BlazeEggRecipe;
-//import evan.spawneggrecipe.recipe.CreeperEggRecipe;
-//import evan.spawneggrecipe.recipe.EndermanEggRecipe;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 
-public class RecipeCommand implements CommandExecutor {
+public class RecipeCommand implements TabExecutor {
+
+    public String greenText(String text) {
+            return Component.text(text).color(NamedTextColor.GREEN).toString();
+        }
+
+    public String redText(String text) {
+            return Component.text(text).color(NamedTextColor.RED).toString();
+        }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|ghast|sheep|witherSkeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>");
+            sender.sendMessage(Component.text("Usage: /eggrecipe <help|creeper|ghast|sheep|witherSkeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
+                    .color(NamedTextColor.RED));
             return true;
         }
 
@@ -29,6 +41,23 @@ public class RecipeCommand implements CommandExecutor {
                 ((org.bukkit.entity.Player) sender).openInventory(gui);
 
         switch (type) {
+
+            case "help":
+                sender.sendMessage(greenText("Available recipes:"));
+                sender.sendMessage("- Creeper");
+                sender.sendMessage("- Chicken");
+                sender.sendMessage("- Wither Skeleton");
+                sender.sendMessage("- Ghast");
+                sender.sendMessage("- Enderman");
+                sender.sendMessage("- Pig");
+                sender.sendMessage("- Warden");
+                sender.sendMessage("- Cow");
+                sender.sendMessage("- Blaze");
+                sender.sendMessage("- Enderdragon");
+                sender.sendMessage("- Villager");
+                sender.sendMessage("- Pillager");
+                sender.sendMessage("- Sheep");
+                break;
 
             case "enderman":
 
@@ -62,7 +91,7 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "pig":
-                sender.sendMessage(ChatColor.GREEN + "Pig Spawn Egg Recipe:");
+                sender.sendMessage(greenText("Pig Spawn Egg Recipe:"));
                 sender.sendMessage("C = Carrot");
                 sender.sendMessage("G = Gold Ingot");
                 sender.sendMessage("P = Porkchop");
@@ -74,7 +103,7 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "warden":
-                sender.sendMessage(ChatColor.GREEN + "Warden Spawn Egg Recipe:");
+                sender.sendMessage(greenText("Warden Spawn Egg Recipe:"));
                 sender.sendMessage("S = Sculk Shrieker");
                 sender.sendMessage("K = Sculk Sensor");
                 sender.sendMessage("P = Potion of Blindness");
@@ -86,7 +115,7 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "cow":
-                sender.sendMessage(ChatColor.GREEN + "Cow Spawn Egg Recipe:");
+                sender.sendMessage(greenText("Cow Spawn Egg Recipe:"));
                 sender.sendMessage("L = Leather");
                 sender.sendMessage("M = Milk Bucket");
                 sender.sendMessage("C = Egg");
@@ -98,7 +127,7 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             case "blaze":
-                sender.sendMessage(ChatColor.GREEN + "Blaze Spawn Egg Recipe:");
+                sender.sendMessage(greenText("Blaze Spawn Egg Recipe:"));
                 sender.sendMessage("F = Fire Charge");
                 sender.sendMessage("R = Blaze Rod");
                 sender.sendMessage("S = Flint and Steel");
@@ -208,10 +237,41 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             default:
-                sender.sendMessage(ChatColor.RED + "Unknown recipe: " + type);
+                sender.sendMessage(redText("Unknown recipe: " + type));
                 break;
         }
 
         return true;
+    }
+
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> suggestions = new ArrayList<>();
+
+        // If the player is on the first argument
+        if (args.length == 1) {
+            suggestions.add("creeper");
+            suggestions.add("chicken");
+            suggestions.add("witherSkeleton");
+            suggestions.add("ghast");
+            suggestions.add("enderman");
+            suggestions.add("pig");
+            suggestions.add("warden");
+            suggestions.add("cow");
+            suggestions.add("blaze");
+            suggestions.add("enderdragon");
+            suggestions.add("villager");
+            suggestions.add("pillager");
+            suggestions.add("sheep");
+        } 
+        
+        // Use StringUtil to filter the results based on what the user has started typing
+        List<String> result = new ArrayList<>();
+        StringUtil.copyPartialMatches(args[args.length - 1], suggestions, result);
+        
+        // Sort alphabetically and return
+        Collections.sort(result);
+        return result;
     }
 }
