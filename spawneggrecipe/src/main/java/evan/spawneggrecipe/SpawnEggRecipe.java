@@ -2,7 +2,6 @@ package evan.spawneggrecipe;
 
 import evan.spawneggrecipe.command.RecipeCommand;
 import evan.spawneggrecipe.listener.MyGuiListener;
-import evan.spawneggrecipe.recipe.BlindnessPotionRecipe;
 import evan.spawneggrecipe.recipe.RecipeManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,7 +25,6 @@ public class SpawnEggRecipe extends JavaPlugin {
 
 
         // Registering the custom brewing recipe for the Potion of Blindness
-        getServer().getPluginManager().registerEvents(new BlindnessPotionRecipe(this), this);
         getServer().getPotionBrewer().addPotionMix(new PotionOfBlindness(this).getBlindnessMix());
 
 
