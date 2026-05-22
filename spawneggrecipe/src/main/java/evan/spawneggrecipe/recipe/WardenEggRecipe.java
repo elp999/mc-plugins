@@ -9,6 +9,10 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
+
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.Color;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,7 +32,7 @@ public class WardenEggRecipe {
         meta.setBasePotionType(PotionType.AWKWARD);
         meta.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 600, 0), true);
 
-        meta.setDisplayName("Potion of Blindness");
+        meta.displayName(Component.text("Potion of Blindness").decoration(TextDecoration.ITALIC, false)); 
         meta.setColor(Color.fromRGB(31, 31, 31)); // Dark grey/black color
 
         potion.setItemMeta(meta);
