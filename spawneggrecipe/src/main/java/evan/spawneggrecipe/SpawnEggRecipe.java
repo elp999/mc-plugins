@@ -11,7 +11,7 @@ public class SpawnEggRecipe extends JavaPlugin {
         getLogger().info("SpawnEggRecipe has been enabled!");
         // Register your recipes and event listeners here
         new RecipeManager(this).registerRecipes();
-        getCommand("eggrecipe").setExecutor(new RecipeCommand());
+        getCommand("eggrecipe").setExecutor(new RecipeCommand(this));
 
         getServer().getPluginManager().registerEvents(new MyGuiListener(), this);
         this.getLogger().info("Plugin enabled and listener registered!");

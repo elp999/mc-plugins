@@ -15,9 +15,7 @@ public class CowEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-        // Implementation for Cow Spawn Egg recipe
-
+    public ShapedRecipe getRecipe() {
         ItemStack result = new ItemStack(Material.COW_SPAWN_EGG);
         NamespacedKey key = new NamespacedKey(plugin, "cow_spawn_egg");
         ShapedRecipe recipe = new ShapedRecipe(key, result);
@@ -32,7 +30,10 @@ public class CowEggRecipe {
         recipe.setIngredient('M', Material.MILK_BUCKET);
         recipe.setIngredient('C', Material.EGG);
         recipe.setIngredient('S', Material.COOKED_BEEF);
-        Bukkit.addRecipe(recipe);
+        return recipe;
     }
-    
+
+    public void register() {
+        Bukkit.addRecipe(getRecipe());
+    }
 }

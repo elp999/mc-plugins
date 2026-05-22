@@ -15,32 +15,25 @@ public class PigEggRecipe {
         this.plugin = plugin;
     }
 
-    public void register() {
-
-        // Result item (Pig Spawn Egg)
+    public ShapedRecipe getRecipe() {
         ItemStack result = new ItemStack(Material.PIG_SPAWN_EGG);
-
-        // Unique recipe key
         NamespacedKey key = new NamespacedKey(plugin, "pig_spawn_egg");
-
-        // Create shaped recipe
         ShapedRecipe recipe = new ShapedRecipe(key, result);
 
-        // Shape (3x3 crafting table)
         recipe.shape(
                 "CGC",
                 "PEP",
                 "CGC"
         );
 
-        // Ingredients
         recipe.setIngredient('P', Material.PORKCHOP);
         recipe.setIngredient('E', Material.EGG);
         recipe.setIngredient('C', Material.CARROT);
         recipe.setIngredient('G', Material.GOLD_INGOT);
-
-        // Register recipe
-        Bukkit.addRecipe(recipe);
+        return recipe;
     }
-    
+
+    public void register() {
+        Bukkit.addRecipe(getRecipe());
+    }
 }
