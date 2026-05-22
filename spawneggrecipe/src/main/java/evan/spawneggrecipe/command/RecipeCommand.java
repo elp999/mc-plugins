@@ -18,19 +18,19 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 public class RecipeCommand implements TabExecutor {
 
-    public String greenText(String text) {
-            return Component.text(text).color(NamedTextColor.GREEN).toString();
-        }
-
-    public String redText(String text) {
-            return Component.text(text).color(NamedTextColor.RED).toString();
-        }
+    //public String greenText(String text) {
+    //        return Component.text(text).color(NamedTextColor.GREEN).toString();
+    //    }
+//
+    //public String redText(String text) {
+    //        return Component.text(text).color(NamedTextColor.RED).toString();
+    //    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(Component.text("Usage: /eggrecipe <help|creeper|ghast|sheep|witherSkeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
+            sender.sendMessage(Component.text("Usage: /eggrecipe <help|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
                     .color(NamedTextColor.RED));
             return true;
         }
@@ -43,7 +43,7 @@ public class RecipeCommand implements TabExecutor {
         switch (type) {
 
             case "help":
-                sender.sendMessage(greenText("Available recipes:"));
+                sender.sendMessage("Available recipes:");
                 sender.sendMessage("- Creeper");
                 sender.sendMessage("- Chicken");
                 sender.sendMessage("- Wither Skeleton");
@@ -91,7 +91,7 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             case "pig":
-                sender.sendMessage(greenText("Pig Spawn Egg Recipe:"));
+                sender.sendMessage("Pig Spawn Egg Recipe:");
                 sender.sendMessage("C = Carrot");
                 sender.sendMessage("G = Gold Ingot");
                 sender.sendMessage("P = Porkchop");
@@ -103,7 +103,7 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             case "warden":
-                sender.sendMessage(greenText("Warden Spawn Egg Recipe:"));
+                sender.sendMessage("Warden Spawn Egg Recipe:");
                 sender.sendMessage("S = Sculk Shrieker");
                 sender.sendMessage("K = Sculk Sensor");
                 sender.sendMessage("P = Potion of Blindness");
@@ -115,7 +115,7 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             case "cow":
-                sender.sendMessage(greenText("Cow Spawn Egg Recipe:"));
+                sender.sendMessage("Cow Spawn Egg Recipe:");
                 sender.sendMessage("L = Leather");
                 sender.sendMessage("M = Milk Bucket");
                 sender.sendMessage("C = Egg");
@@ -127,7 +127,7 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             case "blaze":
-                sender.sendMessage(greenText("Blaze Spawn Egg Recipe:"));
+                sender.sendMessage("Blaze Spawn Egg Recipe:");
                 sender.sendMessage("F = Fire Charge");
                 sender.sendMessage("R = Blaze Rod");
                 sender.sendMessage("S = Flint and Steel");
@@ -208,7 +208,7 @@ public class RecipeCommand implements TabExecutor {
                 gui.setItem(0, new ItemStack(org.bukkit.Material.CHICKEN_SPAWN_EGG)); // crafting result
                 break;
 
-            case "witherSkeleton":
+            case "witherskeleton":
                 gui.setItem(1, new ItemStack(org.bukkit.Material.COAL)); //block 1
                 gui.setItem(2, new ItemStack(org.bukkit.Material.STONE_SWORD)); //block 2
                 gui.setItem(3, new ItemStack(org.bukkit.Material.COAL)); //block 3
@@ -237,7 +237,7 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             default:
-                sender.sendMessage(redText("Unknown recipe: " + type));
+                sender.sendMessage("Unknown recipe: " + type);
                 break;
         }
 
@@ -253,7 +253,7 @@ public class RecipeCommand implements TabExecutor {
         if (args.length == 1) {
             suggestions.add("creeper");
             suggestions.add("chicken");
-            suggestions.add("witherSkeleton");
+            suggestions.add("witherskeleton");
             suggestions.add("ghast");
             suggestions.add("enderman");
             suggestions.add("pig");
