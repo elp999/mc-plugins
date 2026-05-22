@@ -1,21 +1,37 @@
 package evan.spawneggrecipe;
+
 import evan.spawneggrecipe.command.RecipeCommand;
 import evan.spawneggrecipe.listener.MyGuiListener;
+import evan.spawneggrecipe.recipe.BlindnessPotionRecipe;
 import evan.spawneggrecipe.recipe.RecipeManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import evan.spawneggrecipe.potions.PotionOfBlindness;
 
 public class SpawnEggRecipe extends JavaPlugin {
     
     @Override
     public void onEnable() {
-        getLogger().info("SpawnEggRecipe has been enabled!");
-        // Register your recipes and event listeners here
+        // Registing recipes here
         new RecipeManager(this).registerRecipes();
-        getCommand("eggrecipe").setExecutor(new RecipeCommand(this));
-        this.getCommand("eggrecipe").setTabCompleter(new RecipeCommand(this));
 
+
+        // Register command and tab completer
+        getCommand("eggrecipe").setExecutor(new RecipeCommand(this));
+        getCommand("eggrecipe").setTabCompleter(new RecipeCommand(this));
+
+
+        // Register the GUI listener
         getServer().getPluginManager().registerEvents(new MyGuiListener(), this);
-        this.getLogger().info("Plugin enabled and listener registered!");
+
+
+        // Registering the custom brewing recipe for the Potion of Blindness
+        getServer().getPluginManager().registerEvents(new BlindnessPotionRecipe(this), this);
+        getServer().getPotionBrewer().addPotionMix(new PotionOfBlindness(this).getBlindnessMix());
+
+
+        // logs
+        getLogger().info("SpawnEggRecipe has been enabled!");
     }
     
 }
