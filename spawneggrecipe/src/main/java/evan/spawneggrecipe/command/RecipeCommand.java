@@ -112,6 +112,7 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.COOKED_BEEF)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.COW_SPAWN_EGG)); // crafting result
+                break;
 
             case "blaze":
                 gui.setItem(1, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 1
