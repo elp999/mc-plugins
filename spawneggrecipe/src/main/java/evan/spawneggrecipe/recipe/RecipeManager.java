@@ -25,5 +25,10 @@ public class RecipeManager {
         new ChickenEggRecipe(plugin).register(); //works
         new WitherSkeletonEggRecipe(plugin).register(); //works
         new GhastEggRecipe(plugin).register(); // works
+        new WolfEggRecipe(plugin).register(); //works
+        new CatEggRecipe(plugin).register(); //works
+        new ZombieEggRecipe(plugin).register(); //works
+        new SkeletonEggRecipe(plugin).register(); //works
+        new ZombiepigmanEggRecipe(plugin).register(); //works
     }
 }

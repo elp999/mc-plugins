@@ -30,19 +30,14 @@ public class RecipeCommand implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(Component.text("Usage: /eggrecipe <help|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
+            sender.sendMessage(Component.text("Usage: /eggrecipe <help|zombiepigman|skeleton|zombie|wolf|cat|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
                     .color(NamedTextColor.RED));
             return true;
         }
 
         String type = args[0].toLowerCase();
-
-        Inventory gui = Bukkit.createInventory(null, InventoryType.WORKBENCH, "§8Custom Recipe Creator");
-                ((org.bukkit.entity.Player) sender).openInventory(gui);
-
-        switch (type) {
-
-            case "help":
+        
+        if (type.equals("help")) {
                 sender.sendMessage("Available recipes:");
                 sender.sendMessage("- Creeper");
                 sender.sendMessage("- Chicken");
@@ -57,10 +52,19 @@ public class RecipeCommand implements TabExecutor {
                 sender.sendMessage("- Villager");
                 sender.sendMessage("- Pillager");
                 sender.sendMessage("- Sheep");
-                break;
+                sender.sendMessage("- Wolf");
+                sender.sendMessage("- Cat");
+                sender.sendMessage("- Skeleton");
+                sender.sendMessage("- Zombie");
+                sender.sendMessage("- Zombiepigman");
+
+        } else {
+            Inventory gui = Bukkit.createInventory(null, InventoryType.WORKBENCH, "§8Custom Recipe Creator");
+                ((org.bukkit.entity.Player) sender).openInventory(gui);
+
+            switch (type) {
 
             case "enderman":
-
                 gui.setItem(1, new ItemStack(org.bukkit.Material.END_ROD)); //block 1
                 gui.setItem(2, new ItemStack(org.bukkit.Material.ENDER_EYE)); //block 2
                 gui.setItem(3, new ItemStack(org.bukkit.Material.END_ROD)); //block 3
@@ -75,7 +79,6 @@ public class RecipeCommand implements TabExecutor {
                 break;
 
             case "creeper":
-
                 gui.setItem(1, new ItemStack(org.bukkit.Material.TNT)); //block 1
                 gui.setItem(2, new ItemStack(org.bukkit.Material.GUNPOWDER)); //block 2
                 gui.setItem(3, new ItemStack(org.bukkit.Material.TNT)); //block 3
@@ -245,11 +248,81 @@ public class RecipeCommand implements TabExecutor {
                 gui.setItem(0, new ItemStack(org.bukkit.Material.GHAST_SPAWN_EGG)); // crafting result
                 break;
 
+            case "wolf":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.AIR)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.DIAMOND)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.AIR)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.BONE)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block
+                gui.setItem(6, new ItemStack(org.bukkit.Material.BONE)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.AIR)); //block
+                gui.setItem(8, new ItemStack(org.bukkit.Material.BONE)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.AIR)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.WOLF_SPAWN_EGG)); // crafting result
+                break;
+
+            case "cat":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.STRING)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.MILK_BUCKET)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.STRING)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.COD)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.COD)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.SALMON)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.COD)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.SALMON)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.CAT_SPAWN_EGG)); // crafting result
+                break;
+
+            case "zombie":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.CARROT)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.FEATHER)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.FEATHER)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.ZOMBIE_SPAWN_EGG)); // crafting result
+                break;
+
+            case "skeleton":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.ARROW)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.BOW)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.ARROW)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.BONE)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.BONE)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.BONE)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.BONE)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.BONE)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.SKELETON_SPAWN_EGG)); // crafting result
+                break;
+
+            case "zombiepigman":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.GOLD_INGOT)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.GOLD_NUGGET)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.PIG_SPAWN_EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.GOLDEN_SWORD)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.ZOMBIFIED_PIGLIN_SPAWN_EGG)); // crafting result
+                break;
+
             default:
                 sender.sendMessage("Unknown recipe: " + type);
                 break;
+            }
         }
-
         return true;
     }
 
@@ -260,6 +333,7 @@ public class RecipeCommand implements TabExecutor {
 
         // If the player is on the first argument
         if (args.length == 1) {
+            suggestions.add("help");
             suggestions.add("creeper");
             suggestions.add("chicken");
             suggestions.add("witherskeleton");
@@ -273,6 +347,11 @@ public class RecipeCommand implements TabExecutor {
             suggestions.add("villager");
             suggestions.add("pillager");
             suggestions.add("sheep");
+            suggestions.add("wolf");
+            suggestions.add("cat");
+            suggestions.add("zombie");
+            suggestions.add("skeleton");
+            suggestions.add("zombiepigman");
         } 
         
         // Use StringUtil to filter the results based on what the user has started typing
