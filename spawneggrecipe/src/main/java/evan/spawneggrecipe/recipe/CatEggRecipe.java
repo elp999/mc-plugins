@@ -23,7 +23,7 @@ public class CatEggRecipe {
         recipe.shape(
                 "FMF",
                 "CEC",
-                "SCS  "
+                "SCS"
         );
 
         recipe.setIngredient('F', Material.STRING);
