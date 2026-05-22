@@ -7,7 +7,7 @@
 
     <groupId>evan</groupId>
     <artifactId>spawneggrecipe</artifactId>
-    <version>1.1</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>SpawnEggRecipe</name>
