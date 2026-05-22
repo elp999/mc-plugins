@@ -1,21 +1,25 @@
 package evan.spawneggrecipe.command;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.StringUtil;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import evan.spawneggrecipe.recipe.WardenEggRecipe;
 
-//import evan.spawneggrecipe.recipe.BlazeEggRecipe;
-//import evan.spawneggrecipe.recipe.CreeperEggRecipe;
-//import evan.spawneggrecipe.recipe.EndermanEggRecipe;
 
-public class RecipeCommand implements CommandExecutor {
+public class RecipeCommand implements TabExecutor {
     private final JavaPlugin plugin;
 
     public RecipeCommand(JavaPlugin plugin) {
@@ -26,7 +30,8 @@ public class RecipeCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(ChatColor.RED + "Usage: /eggrecipe <creeper|ghast|sheep|witherSkeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>");
+            sender.sendMessage(Component.text("Usage: /eggrecipe <help|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
+                    .color(NamedTextColor.RED));
             return true;
         }
 
@@ -36,6 +41,23 @@ public class RecipeCommand implements CommandExecutor {
                 ((org.bukkit.entity.Player) sender).openInventory(gui);
 
         switch (type) {
+
+            case "help":
+                sender.sendMessage("Available recipes:");
+                sender.sendMessage("- Creeper");
+                sender.sendMessage("- Chicken");
+                sender.sendMessage("- Wither Skeleton");
+                sender.sendMessage("- Ghast");
+                sender.sendMessage("- Enderman");
+                sender.sendMessage("- Pig");
+                sender.sendMessage("- Warden");
+                sender.sendMessage("- Cow");
+                sender.sendMessage("- Blaze");
+                sender.sendMessage("- Enderdragon");
+                sender.sendMessage("- Villager");
+                sender.sendMessage("- Pillager");
+                sender.sendMessage("- Sheep");
+                break;
 
             case "enderman":
 
@@ -65,7 +87,6 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.TNT)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.CREEPER_SPAWN_EGG)); // crafting result
-
                 break;
 
             case "pig":
@@ -80,7 +101,6 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.CARROT)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.PIG_SPAWN_EGG)); // crafting result
-
                 break;
 
             case "warden":
@@ -97,7 +117,6 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.SCULK_SHRIEKER)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.WARDEN_SPAWN_EGG)); // crafting result
-
                 break;
 
             case "cow":
@@ -126,7 +145,6 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.FIRE_CHARGE)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.BLAZE_SPAWN_EGG)); // crafting result
-
                 break;
             
             case "villager":
@@ -199,7 +217,7 @@ public class RecipeCommand implements CommandExecutor {
                 gui.setItem(0, new ItemStack(org.bukkit.Material.CHICKEN_SPAWN_EGG)); // crafting result
                 break;
 
-            case "witherSkeleton":
+            case "witherskeleton":
                 gui.setItem(1, new ItemStack(org.bukkit.Material.COAL)); //block 1
                 gui.setItem(2, new ItemStack(org.bukkit.Material.STONE_SWORD)); //block 2
                 gui.setItem(3, new ItemStack(org.bukkit.Material.COAL)); //block 3
@@ -228,10 +246,41 @@ public class RecipeCommand implements CommandExecutor {
                 break;
 
             default:
-                sender.sendMessage(ChatColor.RED + "Unknown recipe: " + type);
+                sender.sendMessage("Unknown recipe: " + type);
                 break;
         }
 
         return true;
+    }
+
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> suggestions = new ArrayList<>();
+
+        // If the player is on the first argument
+        if (args.length == 1) {
+            suggestions.add("creeper");
+            suggestions.add("chicken");
+            suggestions.add("witherskeleton");
+            suggestions.add("ghast");
+            suggestions.add("enderman");
+            suggestions.add("pig");
+            suggestions.add("warden");
+            suggestions.add("cow");
+            suggestions.add("blaze");
+            suggestions.add("enderdragon");
+            suggestions.add("villager");
+            suggestions.add("pillager");
+            suggestions.add("sheep");
+        } 
+        
+        // Use StringUtil to filter the results based on what the user has started typing
+        List<String> result = new ArrayList<>();
+        StringUtil.copyPartialMatches(args[args.length - 1], suggestions, result);
+        
+        // Sort alphabetically and return
+        Collections.sort(result);
+        return result;
     }
 }

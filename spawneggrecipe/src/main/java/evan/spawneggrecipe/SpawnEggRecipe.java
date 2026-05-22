@@ -12,6 +12,7 @@ public class SpawnEggRecipe extends JavaPlugin {
         // Register your recipes and event listeners here
         new RecipeManager(this).registerRecipes();
         getCommand("eggrecipe").setExecutor(new RecipeCommand(this));
+        this.getCommand("eggrecipe").setTabCompleter(new RecipeCommand(this));
 
         getServer().getPluginManager().registerEvents(new MyGuiListener(), this);
         this.getLogger().info("Plugin enabled and listener registered!");
