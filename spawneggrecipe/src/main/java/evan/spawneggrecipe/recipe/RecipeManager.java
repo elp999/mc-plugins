@@ -12,18 +12,18 @@ public class RecipeManager {
 
     public void registerRecipes() {
 
-        new CreeperEggRecipe(plugin).register();
-        new EndermanEggRecipe(plugin).register();
-        new PigEggRecipe(plugin).register();
-        new WardenEggRecipe(plugin).register();
-        new CowEggRecipe(plugin).register();
-        new BlazeEggRecipe(plugin).register();
-        new VillagerEggRecipe(plugin).register();
-        new EnderdragonEggRecipe(plugin).register();
-        new PillagerEggRecipe(plugin).register();
-        new SheepEggRecipe(plugin).register();
-        new ChickenEggRecipe(plugin).register();
-        new WitherSkeletonEggRecipe(plugin).register();
-        new GhastEggRecipe(plugin).register();
+        new CreeperEggRecipe(plugin).register(); //works
+        new EndermanEggRecipe(plugin).register(); //works
+        new PigEggRecipe(plugin).register(); //works
+        new WardenEggRecipe(plugin).register(); //need to add recipe for potion
+        new CowEggRecipe(plugin).register(); //works
+        new BlazeEggRecipe(plugin).register(); //works
+        new VillagerEggRecipe(plugin).register(); //works
+        new EnderdragonEggRecipe(plugin).register(); // should work
+        new PillagerEggRecipe(plugin).register(); // should work
+        new SheepEggRecipe(plugin).register(); //works
+        new ChickenEggRecipe(plugin).register(); //works
+        new WitherSkeletonEggRecipe(plugin).register(); //works
+        new GhastEggRecipe(plugin).register(); // works
     }
 }

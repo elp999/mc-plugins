@@ -22,13 +22,13 @@ public class PillagerEggRecipe {
 
         recipe.shape(
                 "ECE",
-                "SES",
+                "SGS",
                 "ECE"
         );
 
         recipe.setIngredient('E', Material.EMERALD);
         recipe.setIngredient('C', Material.CROSSBOW);
-        recipe.setIngredient('E', Material.EGG);
+        recipe.setIngredient('G', Material.EGG);
         recipe.setIngredient('S', Material.STONE_SPEAR);
         return recipe;
     }

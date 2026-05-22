@@ -16,8 +16,8 @@ public class EnderdragonEggRecipe {
     }
 
     public ShapedRecipe getRecipe() {
-        ItemStack result = new ItemStack(Material.DRAGON_EGG);
-        NamespacedKey key = new NamespacedKey(plugin, "enderdragon_egg");
+        ItemStack result = new ItemStack(Material.ENDER_DRAGON_SPAWN_EGG);
+        NamespacedKey key = new NamespacedKey(plugin, "ender_dragon_spawn_egg");
         ShapedRecipe recipe = new ShapedRecipe(key, result);
 
         recipe.shape(
