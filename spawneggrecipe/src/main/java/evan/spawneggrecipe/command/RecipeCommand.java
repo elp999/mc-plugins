@@ -30,7 +30,7 @@ public class RecipeCommand implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(Component.text("Usage: /eggrecipe <help|zombiepigman|skeleton|zombie|wolf|cat|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
+            sender.sendMessage(Component.text("Usage: /eggrecipe <help|mooshroom|zombiepigman|skeleton|zombie|wolf|cat|creeper|ghast|sheep|witherskeleton|enderman|pig|warden|cow|blaze|enderdragon|villager|pillager>")
                     .color(NamedTextColor.RED));
             return true;
         }
@@ -316,6 +316,20 @@ public class RecipeCommand implements TabExecutor {
                 gui.setItem(9, new ItemStack(org.bukkit.Material.ROTTEN_FLESH)); //block 9
 
                 gui.setItem(0, new ItemStack(org.bukkit.Material.ZOMBIFIED_PIGLIN_SPAWN_EGG)); // crafting result
+                break;
+
+            case "mooshroom":
+                gui.setItem(1, new ItemStack(org.bukkit.Material.AIR)); //block 1
+                gui.setItem(2, new ItemStack(org.bukkit.Material.RED_MUSHROOM)); //block 2
+                gui.setItem(3, new ItemStack(org.bukkit.Material.AIR)); //block 3
+                gui.setItem(4, new ItemStack(org.bukkit.Material.AIR)); //block 4
+                gui.setItem(5, new ItemStack(org.bukkit.Material.COW_SPAWN_EGG)); //block 5
+                gui.setItem(6, new ItemStack(org.bukkit.Material.AIR)); //block 6
+                gui.setItem(7, new ItemStack(org.bukkit.Material.LEATHER)); //block 7
+                gui.setItem(8, new ItemStack(org.bukkit.Material.LEATHER)); //block 8
+                gui.setItem(9, new ItemStack(org.bukkit.Material.LEATHER)); //block 9
+
+                gui.setItem(0, new ItemStack(org.bukkit.Material.MOOSHROOM_SPAWN_EGG)); // crafting result
                 break;
 
             default:
